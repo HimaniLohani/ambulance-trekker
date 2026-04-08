@@ -1,38 +1,39 @@
 import "./App.css";
-function App() {
 
+function App() {
   const ambulances = [
     { name: "Ambulance 1", status: "Available" },
     { name: "Ambulance 2", status: "Busy" }
   ];
 
   return (
-    <div>
+    <div className="container">
       <h1>🚑 HelpLink</h1>
-      <p>Find and book ambulance</p>
+      <p className="subtitle">
+        Find and book the nearest ambulance in real-time
+      </p>
 
       <input type="text" placeholder="Enter your location" />
-      <br /><br />
+      <button className="search-btn">Search</button>
 
-      <button>Find Ambulance</button>
+      <div className="card-container">
+        {ambulances.map((item, index) => (
+          <div className="card" key={index}>
+            <h3>🚑 {item.name}</h3>
 
-      <h2>Available Ambulances</h2>
+            <p>
+              Status:{" "}
+              <span className={item.status === "Available" ? "available" : "busy"}>
+                {item.status}
+              </span>
+            </p>
 
-      {ambulances.map((item, index) => (
-        <div className="card" key={index}>
-          <h3>🚑 {item.name}</h3>
-          <p>
-            Status:{" "}
-            <span className={item.status === "Available" ? "available" : "busy"}>
-              {item.status}
-            </span>
-          </p>
-          <button disabled={item.status === "Busy"}>
-            {item.status === "Available" ? "Book Now" : "Unavailable"}
-          </button>
-        </div>
-      ))}
-
+            <button disabled={item.status === "Busy"}>
+              {item.status === "Available" ? "Book Now" : "Unavailable"}
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

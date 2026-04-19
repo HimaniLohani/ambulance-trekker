@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 import "./App.css";
 import { useEffect, useState } from "react";
+=======
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import Login from "./Login";
+import Signup from "./Signup";
+
+>>>>>>> 4a3418d112421e52a29ed5b1992b3f33e71799ae
 function App() {
 const [ambulances, setAmbulances] = useState([]);
 
@@ -10,6 +18,7 @@ useEffect(() => {
     .catch((err) => console.log(err));
 }, []);
   return (
+<<<<<<< HEAD
     <div>
 
       {/* 🔴 NAVBAR */}
@@ -164,3 +173,16 @@ useEffect(() => {
 
 
 export default App;
+=======
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+>>>>>>> 4a3418d112421e52a29ed5b1992b3f33e71799ae

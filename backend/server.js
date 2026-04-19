@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
 
+require("./db");
+
 app.use(express.json());
 
 const ambulanceRoutes = require("./routes/ambulanceRoutes");
-
 app.use("/api", ambulanceRoutes);
 
 app.get("/", (req, res) => {

@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
+const Ambulance = require("../models/Ambulance");
 
-router.get("/ambulances", (req, res) => {
-  res.json([
-    {
-      driverName: "Ravi",
-      phone: "9876543210",
-      location: "Delhi",
-      available: true
-    }
-  ]);
+router.get("/ambulances", async (req, res) => {
+  try {
+    const ambulances = await Ambulance.find();
+    res.json(ambulances);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 module.exports = router;

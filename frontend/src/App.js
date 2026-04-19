@@ -1,6 +1,14 @@
 import "./App.css";
-
+import { useEffect, useState } from "react";
 function App() {
+const [ambulances, setAmbulances] = useState([]);
+
+useEffect(() => {
+  fetch("http://localhost:5000/api/ambulances")
+    .then((res) => res.json())
+    .then((data) => setAmbulances(data))
+    .catch((err) => console.log(err));
+}, []);
   return (
     <div>
 
@@ -118,6 +126,24 @@ function App() {
   <button className="start-btn">Start Booking Now</button>
 </div>
 
+{/* 🚑 AVAILABLE AMBULANCES */}
+<div className="ambulance-list">
+  <h1>Available Ambulances</h1>
+
+  {ambulances.map((ambulance) => (
+    <div key={ambulance._id} className="ambulance-card">
+      <h3>{ambulance.driverName}</h3>
+      <p>Phone: {ambulance.phone}</p>
+      <p>Available: {ambulance.available ? "Yes" : "No"}</p>
+      <p>
+        Coordinates: {ambulance.location.coordinates[0]}, {ambulance.location.coordinates[1]}
+      </p>
+    </div>
+  ))}
+</div>
+
+
+
 {/* ✅ FOOTER */}
 <div className="footer">
   <h2>🚑 HelpLink</h2>
@@ -135,5 +161,6 @@ function App() {
     
   );
 }
+
 
 export default App;

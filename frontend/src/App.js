@@ -1,27 +1,26 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import Signup from "./Signup";
 
-function App() {
-  const [ambulances, setAmbulances] = useState([]);
+function HomePage({ ambulances }) {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/ambulances")
-      .then((res) => res.json())
-      .then((data) => setAmbulances(data))
-      .catch((err) => console.log(err));
-  }, []);
+  const handleBooking = () => {
+    alert("Booking button clicked");
+  };
 
-  const HomePage = () => (
+  return (
     <div>
       <nav className="navbar">
         <div className="logo">🚑 HelpLink</div>
 
         <div className="nav-right">
           <span>📞 Emergency: 108</span>
-          <button className="signin">Sign In</button>
+          <button className="signin" onClick={() => navigate("/login")}>
+            Sign In
+          </button>
         </div>
       </nav>
 
@@ -69,7 +68,9 @@ function App() {
           <input placeholder="Enter phone number" />
         </div>
 
-        <button className="book-btn">🚑 Book Ambulance Now</button>
+        <button className="book-btn" onClick={handleBooking}>
+          🚑 Book Ambulance Now
+        </button>
 
         <p className="note">
           By booking, you agree to our terms. Emergency: <b>108</b>
@@ -79,43 +80,15 @@ function App() {
       <div className="why">
         <h3 className="tag">Why Choose Us</h3>
         <h1>Emergency Care You Can Trust</h1>
-        <p>
-          We combine affordability with quality service to ensure you get the best
-          emergency medical care
-        </p>
       </div>
 
       <div className="steps">
-        <h3 className="tag">Simple Process</h3>
-        <h1>How It Works</h1>
-
-        <div className="step-container">
-          <div className="step">
-            <h2>01</h2>
-            <h3>Book Online</h3>
-            <p>Enter your location and select ambulance type</p>
-          </div>
-
-          <div className="step">
-            <h2>02</h2>
-            <h3>Get Matched</h3>
-            <p>We find nearest ambulance to your location</p>
-          </div>
-
-          <div className="step">
-            <h2>03</h2>
-            <h3>Track Live</h3>
-            <p>Monitor ambulance in real-time</p>
-          </div>
-
-          <div className="step">
-            <h2>04</h2>
-            <h3>Get Care</h3>
-            <p>Receive professional medical help</p>
-          </div>
-        </div>
-
-        <button className="start-btn">Start Booking Now</button>
+        <button
+          className="start-btn"
+          onClick={() => window.scrollTo({ top: 500, behavior: "smooth" })}
+        >
+          Start Booking Now
+        </button>
       </div>
 
       <div className="ambulance-list">
@@ -126,31 +99,28 @@ function App() {
             <h3>{ambulance.driverName}</h3>
             <p>Phone: {ambulance.phone}</p>
             <p>Available: {ambulance.available ? "Yes" : "No"}</p>
-            <p>
-              Coordinates: {ambulance.location.coordinates[0]},{" "}
-              {ambulance.location.coordinates[1]}
-            </p>
+            <p>Location: {ambulance.location}</p>
           </div>
         ))}
       </div>
-
-      <div className="footer">
-        <h2>🚑 HelpLink</h2>
-        <p>Providing affordable and reliable ambulance services 24/7</p>
-
-        <div className="footer-bottom">
-          <h1>Emergency? Call Now!</h1>
-          <h2>108</h2>
-          <p>Available 24/7</p>
-        </div>
-      </div>
     </div>
   );
+}
+
+function App() {
+  const [ambulances, setAmbulances] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/ambulances")
+      .then((res) => res.json())
+      .then((data) => setAmbulances(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage ambulances={ambulances} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

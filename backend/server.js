@@ -3,10 +3,18 @@ const cors = require("cors");
 
 const app = express();
 
+
+require("./db");
+
+app.use(express.json());
+
+const ambulanceRoutes = require("./routes/ambulanceRoutes");
+app.use("/api", ambulanceRoutes);
+
 app.use(cors());
 app.use(express.json());
 
-// test route
+//
 app.get("/", (req, res) => {
   res.send("Backend is running ✅");
 });
@@ -35,5 +43,5 @@ app.post("/api/ambulances", (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000/api/login 🚀");
+  console.log("Server running on port 5000");
 });

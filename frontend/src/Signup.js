@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useState } from 'react';
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -13,17 +14,22 @@ function Signup() {
     <div style={{ textAlign: "center", marginTop: "100px" }}>
       <h1>Signup</h1>
 
-      <input
-        placeholder="Email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <br /><br />
+     <input
+  type="email"
+  placeholder="Email"
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+/>
 
-      <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+<br /><br />
+
+<input
+  type="password"
+  placeholder="Password"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+/>
+
       <br /><br />
 
       <button onClick={handleSignup}>Signup</button>

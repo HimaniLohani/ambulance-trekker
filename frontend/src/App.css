@@ -1,235 +1,242 @@
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: "Segoe UI", sans-serif;
+  background: #f6f7fb;
 }
 
-/* 🔴 NAVBAR */
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: #ff2d2d;
+  padding: 18px 50px;
+  background: #2563eb; /* blue */
   color: white;
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
 }
 
-.nav-right {
+/* HERO */
+.hero-container {
   display: flex;
   align-items: center;
-  gap: 15px;
-}
-
-.signin {
-  background: white;
-  color: red;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* 🔥 HERO SECTION */
-.hero {
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 60px;
-  background: linear-gradient(to right, #ff2d2d, #ff6a00);
+  padding: 80px 60px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
   color: white;
 }
-
 .hero-left {
   max-width: 50%;
 }
 
 .hero-left h1 {
-  font-size: 45px;
+  font-size: 48px;
 }
 
 .hero-left span {
-  color: yellow;
+  color: #93c5fd; /* light blue highlight */
+}
+.hero-left p {
+  margin: 20px 0;
 }
 
-.hero-right {
-  position: relative;
+.hero-btn {
+  background: #1d4ed8;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  transition: 0.3s;
 }
 
+.hero-btn:hover {
+  background: #1e40af;
+  transform: scale(1.05);
+}
+
+/* IMAGE */
 .hero-right img {
-  width: 400px;
-  border-radius: 10px;
+  width: 420px;
+  border-radius: 16px;
+  transition: 0.3s;
 }
 
-.price {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #ffcc00;
-  padding: 10px 15px;
-  border-radius: 10px;
-  font-weight: bold;
+.hero-right img:hover {
+  transform: scale(1.05);
 }
 
-/* 📦 BOOKING SECTION */
-.booking {
-  background: #f5f7fa;
-  padding: 40px;
-  text-align: center;
-}
-
-.booking h2 {
-  margin-bottom: 20px;
-}
-
-/* 🚑 TYPES */
-.types {
+/* FEATURES */
+.features {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-bottom: 20px;
+  margin: 50px;
 }
 
-.type {
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  width: 200px;
+.feature-card {
   background: white;
-}
-
-.type.active {
-  border: 2px solid red;
-}
-
-/* 📝 FORM */
-.booking input {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-
-.book-btn {
-  background: red;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 8px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-/* WHY */
-.why {
+  padding: 20px;
+  border-radius: 14px;
+  width: 200px;
   text-align: center;
-  padding: 50px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
 }
 
-.tag {
-  background: #ffe5e5;
-  color: red;
-  display: inline-block;
-  padding: 8px 15px;
-  border-radius: 20px;
-}
-
-.why h1 {
-  margin-top: 10px;
+.feature-card:hover {
+  transform: translateY(-10px);
 }
 
 /* STEPS */
 .steps {
   text-align: center;
-  padding: 50px;
-  background: #f5f7fa;
+  padding: 40px;
 }
 
-.step-container {
+.step-grid {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 30px;
-  flex-wrap: wrap;
 }
 
-.step {
+.step-card {
   background: white;
   padding: 20px;
+  border-radius: 14px;
   width: 220px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
-.step h2 {
-  color: red;
-}
-
-.start-btn {
-  margin-top: 30px;
-  padding: 12px 25px;
-  background: red;
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 60px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
   color: white;
+}
+
+.cta button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border-radius: 10px;
   border: none;
-  border-radius: 8px;
+  background: white;
+  color: red;
+  cursor: pointer;
 }
 
 /* FOOTER */
 .footer {
-  background: #0b1b2b;
-  color: white;
   text-align: center;
-  padding: 40px;
-}
-
-.footer-bottom {
-  background: red;
-  margin-top: 20px;
   padding: 20px;
-  border-radius: 10px;
+  background: #111;
+  color: white;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  max-width: 800px;
-  margin: 20px auto;
+/* CENTER ALL PAGES */
+.page-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
 }
 
+/* AUTH CARD */
+.auth-card {
+  width: 360px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
 
-.form-grid input {
+/* BOOKING CARD */
+.booking-card {
+  width: 420px;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* CONFIRM CARD */
+.confirm-card {
+  width: 380px;
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* FORM ELEMENTS */
+input, select, textarea {
   width: 100%;
-  margin: 0;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
 }
 
-.booking h1 {
-  margin-bottom: 10px;
+/* BUTTON */
+.primary-btn {
+  width: 100%;
+  background: #e60023;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
-.booking p {
-  margin-bottom: 25px;
+/* PRICING BOX */
+.pricing {
+  background: #f3f6ff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
-.types {
-  margin-bottom: 30px;
+/* DRIVER CARD */
+.driver-card {
+  background: #eef2ff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
-
-.form-grid {
-  margin-top: 20px;
-  gap: 20px;
+/* BUTTONS */
+.action-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-
-.book-btn {
-  margin-top: 30px;
+.call {
+  flex: 1;
+  background: #2563eb;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
 }
 
+.track {
+  flex: 1;
+  background: #16a34a;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
 
-.note {
-  margin-top: 15px;
+/* SUCCESS TEXT */
+.success-text {
+  color: green;
 }

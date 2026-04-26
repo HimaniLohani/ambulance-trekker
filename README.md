@@ -74,14 +74,6 @@ npm install
 npm start
 ```
 
----
-
-## 📸 Screenshots
-
-> Add screenshots of your UI here (homepage, booking page, etc.)
-
----
-
 ## 🔮 Future Improvements
 
 * 📍 Live ambulance tracking
